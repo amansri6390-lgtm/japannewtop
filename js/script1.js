@@ -1,32 +1,34 @@
+$(document).ready(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'media/buzzer-bell.wav');
 
-  $(document).ready(function() {
-   var audioElement = document.createElement('audio');
-   audioElement.setAttribute('src', 'media/buzzer-bell.wav');
+    audioElement.addEventListener('ended', function() {
+        this.play();
+    }, false);
 
-   audioElement.addEventListener('ended', function() {
-       this.play();
-   }, false);
+    // delay in milliseconds
+    var delay = 500; // Change this value (1000 = 1 second)
 
+    function playWithDelay() {
+        setTimeout(function () {
+            audioElement.play();
+        }, delay);
+    }
 
     $('#mycanvas').click(function() {
-       audioElement.play();
+        playWithDelay();
+    });
 
-   });
+    $('#link_black').click(function() {
+        playWithDelay();
+    });
 
-     $('#link_black').click(function() {
-       audioElement.play();
+    $('.pro_box').click(function() {
+        playWithDelay();
+    });
 
-   });
-
-
-      $('.pro_box').click(function() {
-       audioElement.play();
-
-   });
-
-       $('#botgnws').click(function() {
-       audioElement.play();
-
-   });
+    $('#botgnws').click(function() {
+        playWithDelay();
+    });
 
 });
